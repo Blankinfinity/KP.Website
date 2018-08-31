@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Presentation.UI", "KP.Presentation.UI\KP.Presentation.UI.csproj", "{D693FA2C-78F1-4E9E-B504-85E84D552C33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Presentation.UI", "KP.Presentation.UI\KP.Presentation.UI.csproj", "{D693FA2C-78F1-4E9E-B504-85E84D552C33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1CE82A0B-48A2-4333-8126-2BB8D348595D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{993B2B08-88EE-4A05-88E7-6ADD27E8D002}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{2BD167E9-D68E-4E84-9897-F53FE2BACA46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{AB9C4E59-AD71-4CAF-B2BC-3A8484ECA0E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D693FA2C-78F1-4E9E-B504-85E84D552C33} = {AB9C4E59-AD71-4CAF-B2BC-3A8484ECA0E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40F82F57-B32E-4874-8D21-4DD01F16DB56}
