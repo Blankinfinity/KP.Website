@@ -16,6 +16,10 @@
     "lib": [
       "es2018",
       "dom"
+    ],
+    "exclude": [
+      "node_modules",
+      "wwwroot"
     ]
   }
 }
