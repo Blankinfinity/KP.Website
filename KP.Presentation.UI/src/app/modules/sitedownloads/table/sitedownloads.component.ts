@@ -4,7 +4,7 @@ import { SiteDownloadsService } from '../shared/sitedownloads.service';
 @Component({
   selector: 'app-sitedownloads',
   templateUrl: './sitedownloads.component.html',
-  styleUrls: ['./sitedownloads.component.sass']
+  styleUrls: ['./sitedownloads.component.scss']
 })
 export class SitedownloadsComponent implements OnInit {
 
