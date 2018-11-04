@@ -1,3 +1,4 @@
+import 'hammerjs'; // For Gesture and Touch support
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

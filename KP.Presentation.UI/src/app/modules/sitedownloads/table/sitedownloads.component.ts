@@ -9,13 +9,15 @@ import { SiteDownloadsService } from '../shared/sitedownloads.service';
 export class SitedownloadsComponent implements OnInit {
 
   public sitedownloads: Array<any>;
+  public sitedownloadsAsync: Array<any>;
   public currentSite: any;
 
   constructor(private siteDownloadsService: SiteDownloadsService) {
     siteDownloadsService.get().subscribe((data: any) => this.sitedownloads = data);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.sitedownloadsAsync = await this.siteDownloadsService.getasync();
   }
 
 }
