@@ -8,10 +8,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SitedownloadsModule } from './modules/sitedownloads/sitedownloads.module';
 import { MaterialModule } from './core/material.module';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
