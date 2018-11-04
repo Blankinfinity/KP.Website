@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SitedownloadsModule } from './modules/sitedownloads/sitedownloads.module';
-import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
+import { MaterialModule } from './core/material.module';
 
 @NgModule({
   declarations: [
@@ -16,11 +16,8 @@ import { MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule } fr
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MaterialModule,
     SitedownloadsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
     AppRoutingModule
   ],
   providers: [],
