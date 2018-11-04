@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { SiteDownloads } from './sitedownloads.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +15,15 @@ export class SiteDownloadsService {
    }
 
    public get() {
-    // Get all jogging data
+    // Get all sitedownload data
     return this.http.get(this.accessPointUrl, {headers: this.headers});
+  }
+
+  // Async test
+  public async getasync(): Promise<SiteDownloads[]> {
+    // Get all sitedownload data async
+    const response = await this.http.get(this.accessPointUrl, {headers: this.headers}).toPromise();
+    return response as SiteDownloads[];
   }
 
   public add(payload) {
