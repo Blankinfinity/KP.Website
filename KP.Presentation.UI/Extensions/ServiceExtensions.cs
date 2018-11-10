@@ -1,3 +1,5 @@
+using KP.Application.Contracts;
+using KP.Application.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +26,11 @@ namespace KP.Presentation.UI.Extensions
       {
 
       });
+    }
+
+    public static void ConfigureLoggerService(this IServiceCollection services)
+    {
+      services.AddSingleton<ILoggerManager, LoggerManager>();
     }
   }
 }

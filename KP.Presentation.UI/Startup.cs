@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using KP.Presentation.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
+using Serilog;
 
 namespace KP.Presentation.UI
 {
@@ -15,6 +17,12 @@ namespace KP.Presentation.UI
   {
     public Startup(IConfiguration configuration)
     {
+      Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Is(Serilog.Events.LogEventLevel.Debug)
+                .Enrich.FromLogContext()
+                .WriteTo.File(Environment.MachineName + ".log")
+                .CreateLogger();
+
       Configuration = configuration;
     }
 
@@ -26,6 +34,8 @@ namespace KP.Presentation.UI
       services.ConfigureCors();
 
       services.ConfigureIISIntegration();
+
+      services.ConfigureLoggerService();
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
