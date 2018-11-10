@@ -13,19 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{AB9C4E59-AD71-4CAF-B2BC-3A8484ECA0E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Domain.Contracts", "KP.Domain.Contracts\KP.Domain.Contracts.csproj", "{0C85C645-4D2A-4775-B6DB-5104275E2961}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Domain.Contracts", "KP.Domain.Contracts\KP.Domain.Contracts.csproj", "{0C85C645-4D2A-4775-B6DB-5104275E2961}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Domain.Data", "KP.Domain.Data\KP.Domain.Data.csproj", "{EB7C73F6-9B39-4547-BA4E-DFFAC540964F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Domain.Data", "KP.Domain.Data\KP.Domain.Data.csproj", "{EB7C73F6-9B39-4547-BA4E-DFFAC540964F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Domain.Entities", "KP.Domain.Entities\KP.Domain.Entities.csproj", "{18913F9F-0700-4A67-B524-0233B885510A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Domain.Entities", "KP.Domain.Entities\KP.Domain.Entities.csproj", "{18913F9F-0700-4A67-B524-0233B885510A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Application.Contracts", "KP.Application.Contracts\KP.Application.Contracts.csproj", "{DD9D40FB-633F-4028-AA64-0709FFF9FDD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Application.Contracts", "KP.Application.Contracts\KP.Application.Contracts.csproj", "{DD9D40FB-633F-4028-AA64-0709FFF9FDD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Application.Services", "KP.Application.Services\KP.Application.Services.csproj", "{FAB4A6CF-4D04-49C0-BEF9-8CF02CD8DBB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Application.Services", "KP.Application.Services\KP.Application.Services.csproj", "{FAB4A6CF-4D04-49C0-BEF9-8CF02CD8DBB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Infrastructure", "KP.Infrastructure\KP.Infrastructure.csproj", "{7E26D1E5-6DE4-4E20-B581-D92589C16FCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Infrastructure", "KP.Infrastructure\KP.Infrastructure.csproj", "{7E26D1E5-6DE4-4E20-B581-D92589C16FCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP.Infrastructure.IoC", "KP.Infrastructure.IoC\KP.Infrastructure.IoC.csproj", "{41EB2B12-A2DD-4D5B-9254-7ED82FD227AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP.Infrastructure.IoC", "KP.Infrastructure.IoC\KP.Infrastructure.IoC.csproj", "{41EB2B12-A2DD-4D5B-9254-7ED82FD227AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
