@@ -1,7 +1,9 @@
 using System.IO;
+using KP.Presentation.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +23,9 @@ namespace KP.Presentation.UI
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      
+      services.ConfigureCors();
+
+      services.ConfigureIISIntegration();
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
@@ -29,8 +33,6 @@ namespace KP.Presentation.UI
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-      app.UseCors("CorsPolicy");
-
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -39,6 +41,13 @@ namespace KP.Presentation.UI
       {
         app.UseHsts();
       }
+
+      app.UseCors("CorsPolicy");
+
+      app.UseForwardedHeaders(new ForwardedHeadersOptions
+      {
+        ForwardedHeaders = ForwardedHeaders.All
+      });
 
       //app.UseHttpsRedirection();
       app.Use(async (context, next) =>
