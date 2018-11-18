@@ -2,7 +2,11 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../wwwroot",
-    "types": []
+    "types": [
+      "jquery",
+      "bootstrap",
+      "jqueryui"
+    ]
   },
   "exclude": [
     "test.ts",

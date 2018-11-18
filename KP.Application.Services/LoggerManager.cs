@@ -1,5 +1,7 @@
 ﻿using KP.Application.Contracts;
 using Serilog;
+using Serilog.Events;
+using System;
 
 namespace KP.Application.Services
 {
@@ -9,6 +11,15 @@ namespace KP.Application.Services
 
         public LoggerManager()
         {
+        }
+
+        public ILogger CreateLogger()
+        {
+            return new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .MinimumLevel.Is(LogEventLevel.Debug)
+                .WriteTo.File(Environment.MachineName + ".log", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
         }
 
         public void LogDebug(string message)

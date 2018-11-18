@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace KP.Domain.Entities
+namespace KP.Domain.Entities.Models
 {
     public class Roles
     {

@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.7.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KP.Application.Contracts\KP.Application.Contracts.csproj" />
+    <ProjectReference Include="..\KP.Domain.Contracts\KP.Domain.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

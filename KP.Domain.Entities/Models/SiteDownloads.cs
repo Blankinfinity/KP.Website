@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KP.Domain.Entities
+namespace KP.Domain.Entities.Models
 {
     public class SiteDownloads
     {

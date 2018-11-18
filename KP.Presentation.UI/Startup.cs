@@ -1,5 +1,11 @@
 using System;
 using System.IO;
+using KP.Domain.DapperAttributeMapper;
+using KP.Domain.Entities;
+using KP.Domain.Entities.ExtendedModels;
+using KP.Domain.Entities.Models;
+using KP.Infrastructure.IoC;
+using KP.Infrastructure.Logger;
 using KP.Presentation.UI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +14,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 using Serilog;
 
@@ -15,7 +22,15 @@ namespace KP.Presentation.UI
 {
   public class Startup
   {
-    public Startup(IConfiguration configuration)
+    public IApplicationContainerManager ContainerManager { get; private set; }
+    /// <summary>
+    /// Gets or sets the application configuration, where key value pair settings are stored. See
+    /// http://docs.asp.net/en/latest/fundamentals/configuration.html
+    /// http://weblog.west-wind.com/posts/2015/Jun/03/Strongly-typed-AppSettings-Configuration-in-ASPNET-5
+    /// </summary>
+    public IConfiguration Configuration { get; }
+
+    public Startup(IHostingEnvironment env)
     {
       Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Is(Serilog.Events.LogEventLevel.Debug)
@@ -23,13 +38,17 @@ namespace KP.Presentation.UI
                 .WriteTo.File(Environment.MachineName + ".log")
                 .CreateLogger();
 
-      Configuration = configuration;
+      var confBuilder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", true, true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
+        .AddEnvironmentVariables();
+      Configuration = confBuilder.Build();
     }
 
-    public IConfiguration Configuration { get; }
-
     // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
+    // Changed from void to IServiceProvider for autofac injection of services.
+    public IServiceProvider ConfigureServices(IServiceCollection services)
     {
       services.ConfigureCors();
 
@@ -38,11 +57,17 @@ namespace KP.Presentation.UI
       services.ConfigureLoggerService();
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+      // Create the IServiceProvider based on the container.
+      ContainerManager = new AutofacIoCManager();
+      return ContainerManager.PopulateAndGetServiceProvider(services, Configuration);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ILogManager logManager)
     {
+      loggerFactory.AddSerilog(logManager.CreateLogger());
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -90,6 +115,9 @@ namespace KP.Presentation.UI
       });
 
       app.UseMvcWithDefaultRoute();
+      TypeMapper.Initialize(typeof(Owner));
+      TypeMapper.Initialize(typeof(Account));
+      Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
     }
   }
 }

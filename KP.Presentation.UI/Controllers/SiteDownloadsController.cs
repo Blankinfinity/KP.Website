@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Dapper;
 using KP.Application.Contracts;
 using KP.Domain.Entities;
+using KP.Domain.Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KP.Presentation.UI.Controllers
@@ -22,10 +23,10 @@ namespace KP.Presentation.UI.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
-      _logger.LogInfo("Here is info message from our values controller.");
-      _logger.LogDebug("Here is debug message from our values controller.");
-      _logger.LogWarn("Here is warn message from our values controller.");
-      _logger.LogError("Here is error message from our values controller.");
+      //_logger.LogInfo("Here is info message from our values controller.");
+      //_logger.LogDebug("Here is debug message from our values controller.");
+      //_logger.LogWarn("Here is warn message from our values controller.");
+      //_logger.LogError("Here is error message from our values controller.");
 
       string sql = "SELECT TOP 10 * FROM SiteDownloads"; // Just loading top 10 while testing
 
@@ -38,6 +39,7 @@ namespace KP.Presentation.UI.Controllers
     }
 
     [HttpGet]
+    [Route("{id}")]
     public ActionResult<IEnumerable<string>> GetById(string id)
     {
       string sql = "SELECT * FROM SiteDownloads Where Id = @Id"; // Just loading top 10 while testing

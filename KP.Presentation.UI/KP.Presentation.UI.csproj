@@ -19,7 +19,11 @@
   <ItemGroup>
     <ProjectReference Include="..\KP.Application.Contracts\KP.Application.Contracts.csproj" />
     <ProjectReference Include="..\KP.Application.Services\KP.Application.Services.csproj" />
+    <ProjectReference Include="..\KP.Domain.DapperAttributeMapper\KP.Domain.DapperAttributeMapper.csproj" />
+    <ProjectReference Include="..\KP.Domain.Data\KP.Domain.Data.csproj" />
     <ProjectReference Include="..\KP.Domain.Entities\KP.Domain.Entities.csproj" />
+    <ProjectReference Include="..\KP.Infrastructure.IoC\KP.Infrastructure.IoC.csproj" />
+    <ProjectReference Include="..\KP.Infrastructure\KP.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
