@@ -21,13 +21,13 @@ export class OwnerListComponent implements OnInit {
   getAllOwners(): any {
     const apiAddress = 'api/owner';
     this.codeMazeService.getData(apiAddress)
-    .subscribe(res => {
-      this.owners = res as Owner[];
-    },
-    (error) => {
-      this.errorHandler.handleError(error);
-      this.errorMessage = this.errorHandler.errorMessage;
-    });
+      .subscribe(res => {
+        this.owners = res as Owner[];
+      },
+        (error) => {
+          this.errorHandler.handleError(error);
+          this.errorMessage = this.errorHandler.errorMessage;
+        });
   }
 
   public getOwnerDetails(id) {
@@ -38,5 +38,10 @@ export class OwnerListComponent implements OnInit {
   public redirectToUpdatePage(id) {
     const updateUrl = `/owner/update/${id}`;
     this.router.navigate([updateUrl]);
-}
+  }
+
+  public redirectToDeletePage(id) {
+    const deleteUrl = `/owner/delete/${id}`;
+    this.router.navigate([deleteUrl]);
+  }
 }
