@@ -38,7 +38,7 @@ export class OwnerUpdateComponent implements OnInit {
       .subscribe(res => {
         this.owner = res as Owner;
         this.ownerForm.patchValue(this.owner);
-        $('#dateOfBirth').val(this.datePipe.transform(this.owner.dateOfBirth, 'MM/dd/yyyy'));
+        // $('#dateOfBirth').val(this.datePipe.transform(this.owner.dateOfBirth, 'MM/dd/yyyy'));
       },
       (error) => {
         this.errorHandler.handleError(error);
@@ -81,14 +81,14 @@ export class OwnerUpdateComponent implements OnInit {
     this.owner.address = ownerFormValue.address;
 
     const apiUrl = `api/owner/${this.owner.id}`;
-    this.codeMazeService.update(apiUrl, this.owner)
-      .subscribe(res => {
-        $('#successModal').modal();
-      },
-      (error => {
-        this.errorHandler.handleError(error);
-        this.errorMessage = this.errorHandler.errorMessage;
-      })
-    );
+    // this.codeMazeService.update(apiUrl, this.owner)
+    //   .subscribe(res => {
+    //     $('#successModal').modal();
+    //   },
+    //   (error => {
+    //     this.errorHandler.handleError(error);
+    //     this.errorMessage = this.errorHandler.errorMessage;
+    //   })
+    // );
   }
 }

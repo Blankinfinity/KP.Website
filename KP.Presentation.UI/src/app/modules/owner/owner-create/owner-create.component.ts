@@ -59,7 +59,7 @@ export class OwnerCreateComponent implements OnInit {
     const apiUrl = 'api/owner';
     this.codeMazeService.create(apiUrl, owner)
       .subscribe(res => {
-        $('#successModal').modal();
+        // $('#successModal').modal();
       },
       (error => {
         this.errorHandler.handleError(error);

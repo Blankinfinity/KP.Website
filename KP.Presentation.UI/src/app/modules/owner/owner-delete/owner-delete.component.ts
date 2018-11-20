@@ -42,7 +42,7 @@ constructor(private codeMazeService: CodeMazeService, private errorHandler: Erro
     const deleteUrl = `api/owner/${this.owner.id}`;
     this.codeMazeService.delete(deleteUrl)
       .subscribe(res => {
-        $('#successModal').modal();
+        // $('#successModal').modal();
       },
       (error) => {
         this.errorHandler.handleError(error);

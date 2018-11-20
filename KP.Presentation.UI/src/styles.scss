@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
 body {
     border: 0;
-    margin: 0;
 }
 	
 .ui-widget-header {

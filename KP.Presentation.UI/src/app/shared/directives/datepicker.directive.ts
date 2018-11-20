@@ -9,13 +9,13 @@ export class DatepickerDirective implements OnInit {
   constructor(private elementRef: ElementRef) { }
 
   public ngOnInit() {
-    $(this.elementRef.nativeElement).datepicker({
-      dateFormat: 'mm/dd/yy',
-      changeYear: true,
-      yearRange: '-100:+0',
-      onSelect: (dateText) => {
-        this.change.emit(dateText);
-      }
-    });
+    // $(this.elementRef.nativeElement).datepicker({
+    //   dateFormat: 'mm/dd/yy',
+    //   changeYear: true,
+    //   yearRange: '-100:+0',
+    //   onSelect: (dateText) => {
+    //     this.change.emit(dateText);
+    //   }
+    // });
   }
 }

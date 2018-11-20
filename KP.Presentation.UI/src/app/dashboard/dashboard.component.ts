@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {BlogService} from '../services/blog.service';
-import {Post} from '../posts.interface';
+import {Post} from '../shared/_interfaces/posts.interface';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs/Observable';
 

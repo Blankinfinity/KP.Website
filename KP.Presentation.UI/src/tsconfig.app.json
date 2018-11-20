@@ -3,9 +3,6 @@
   "compilerOptions": {
     "outDir": "../wwwroot",
     "types": [
-      "jquery",
-      "bootstrap",
-      "jqueryui"
     ]
   },
   "exclude": [

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import {Post} from '../posts.interface';
+import {Post} from '../shared/_interfaces/posts.interface';
 import {Observable, of} from 'rxjs';
 
 @Injectable({
