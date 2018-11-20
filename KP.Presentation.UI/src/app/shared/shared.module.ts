@@ -6,6 +6,7 @@ import { DatepickerDirective } from './directives/datepicker.directive';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from '../core/material.module';
+import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 
 @NgModule({
   imports: [
@@ -17,14 +18,16 @@ import { MaterialModule } from '../core/material.module';
     SuccessModalComponent,
     DatepickerDirective,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavListComponent
   ],
   exports: [
     ErrorModalComponent,
     SuccessModalComponent,
     DatepickerDirective,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavListComponent
   ]
 })
 export class SharedModule { }
