@@ -3,6 +3,7 @@ import { Owner } from 'src/app/shared/_interfaces/owner.model';
 import { CodeMazeService } from 'src/app/services/code-maze.service';
 import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-owner-list',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./owner-list.component.scss']
 })
 export class OwnerListComponent implements OnInit {
-  public owners: Owner[];
+  public displayedColumns = ['name', 'dateOfBirth', 'address', 'details', 'update', 'delete'
+];
+  public dataSource = new MatTableDataSource<Owner>();
   public errorMessage = '';
 
   constructor(private codeMazeService: CodeMazeService, private errorHandler: ErrorHandlerService, private router: Router) { }
@@ -22,7 +25,7 @@ export class OwnerListComponent implements OnInit {
     const apiAddress = 'api/owner';
     this.codeMazeService.getData(apiAddress)
       .subscribe(res => {
-        this.owners = res as Owner[];
+        this.dataSource.data = res as Owner[];
       },
         (error) => {
           this.errorHandler.handleError(error);
