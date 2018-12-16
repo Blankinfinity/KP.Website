@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 using KP.Domain.Contracts;
-using KP.Domain.Entities;
 using KP.Domain.Entities.ExtendedModels;
 using KP.Domain.Entities.Extensions;
 using KP.Domain.Entities.Models;
