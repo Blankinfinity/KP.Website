@@ -7,6 +7,7 @@ using KP.Domain.Entities.ExtendedModels;
 using KP.Domain.Entities.Extensions;
 using KP.Domain.Entities.Models;
 using KP.Infrastructure.Connections;
+using KP.Infrastructure.Extensions;
 
 namespace KP.Domain.Data
 {
@@ -58,6 +59,7 @@ namespace KP.Domain.Data
         public async Task CreateOwner(Owner owner)
         {
             owner.Id = Guid.NewGuid();
+            UtcDateTimeConverter.Convert(owner);
             var sql = "INSERT INTO [dbo].[Owner] VALUES (@OwnerId, @Name, @DateOfBirth, @Address)";
             await Execute(sql, new { OwnerId = owner.Id, owner.Name, owner.DateOfBirth, owner.Address}, CommandType.Text);
         }
@@ -65,6 +67,7 @@ namespace KP.Domain.Data
         public async Task UpdateOwner(Owner dbOwner, Owner owner)
         {
             dbOwner.Map(owner);
+            UtcDateTimeConverter.Convert(owner);
             var sql = "UPDATE [dbo].[Owner] SET Address=@Address, DateOfBirth=@DateOfBirth, Name=@Name WHERE OwnerId = @OwnerId";
             await Execute(sql, new {OwnerId = dbOwner.Id, dbOwner.Name, dbOwner.DateOfBirth, dbOwner.Address}, CommandType.Text);
         }
