@@ -10,11 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
 import { OwnerRoutingModule } from './owner-routing.module';
+import { MaterialModule } from 'src/app/core/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    MaterialModule,
     ReactiveFormsModule,
     OwnerRoutingModule
   ],
